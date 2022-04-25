@@ -1,30 +1,17 @@
-package maxcmartinez.academic_structure.academicstructure;
+package maxcmartinez.academic_structure.academicstructure.dtos;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
-public class University {
-    @JsonIgnore
-    private Long id;
+public class SubjectDTO {
     private String uuid;
     private String code;
     private String name;
 
-    public University(String uuid, String code, String name) {
+    public SubjectDTO(String uuid, String code, String name) {
         this.uuid = uuid;
         this.code = code;
         this.name = name;
     }
 
-    public University() {
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
+    public SubjectDTO(){}
 
     public String getUuid() {
         return uuid;
