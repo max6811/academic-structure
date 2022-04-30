@@ -16,6 +16,7 @@ public class SisResponseEntityExceptionHandler extends ResponseEntityExceptionHa
 
     @ExceptionHandler(Exception.class)
     public final ResponseEntity<Object> handleAllException(Exception ex, WebRequest request) throws Exception {
+        ex.printStackTrace();//para tener mas info
         SisExceptionResponse sisExceptionResponse = new SisExceptionResponse(new Date(), ex.getMessage());
         return new ResponseEntity(sisExceptionResponse, HttpStatus.INTERNAL_SERVER_ERROR);
     }

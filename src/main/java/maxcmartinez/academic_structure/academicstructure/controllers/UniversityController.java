@@ -1,5 +1,6 @@
 package maxcmartinez.academic_structure.academicstructure.controllers;
 
+import maxcmartinez.academic_structure.academicstructure.dtos.FacultyDTO;
 import maxcmartinez.academic_structure.academicstructure.dtos.UniversityDTO;
 import maxcmartinez.academic_structure.academicstructure.services.UniversityService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -60,13 +61,19 @@ public class UniversityController {
     }
 
     @PutMapping("/{universityUuid}")
-    public UniversityDTO edit(@PathVariable String universityUuid, UniversityDTO university){
-        return new UniversityDTO(universityUuid, "UMSS", "Universidad Mayor de San S");
+    public UniversityDTO update(@RequestBody UniversityDTO university){
+        return universityService.updateUniversity(university);
     }
 
-    @DeleteMapping("/universities/{universityUuid}")
+    @DeleteMapping("/{universityUuid}")
     public UniversityDTO delete(@PathVariable String universityUuid){
-        return new UniversityDTO(universityUuid, "UMSS", "Universidad Mayor de San S");
+        return universityService.deleteUniversity(universityUuid);
+    }
+
+    @GetMapping("/{universityUuid}/faculties")
+    public List<FacultyDTO> getFaculties(@PathVariable String universityUuid){
+        System.out.println(universityUuid);
+        return this.universityService.getFaculties(universityUuid);
     }
 
 }
