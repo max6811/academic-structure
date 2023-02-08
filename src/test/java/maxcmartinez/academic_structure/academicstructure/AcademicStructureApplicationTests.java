@@ -5,9 +5,10 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
 class AcademicStructureApplicationTests {
-
+	private static final TITLE = "TEST";
 	@Test
 	void contextLoads() {
+		
 	}
 
 }
